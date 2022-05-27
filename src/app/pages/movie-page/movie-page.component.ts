@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from "@angular/core";
+import { SharedService } from "../../shared.service";
 
 import { Movie } from "../../types";
 import movieListData from "../../static/movie-list.json";
@@ -12,12 +13,12 @@ export class MoviePage {
   selectedMovie = movieListData[0];
   movieListData = movieListData;
 
+  constructor(private sharedService: SharedService) {}
+
   @Output() pageTitle = new EventEmitter<String>();
 
   onMovieSelected(movie: Movie) {
     this.selectedMovie = movie;
-    this.pageTitle.emit(movie.title)
+    this.sharedService.nextMessage(movie.title)
   }
-
-  constructor() {}
 }

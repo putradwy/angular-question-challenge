@@ -11,6 +11,8 @@ import { PosterComponent } from "./components/atoms/poster/poster.component";
 import { MovieInfoComponent } from "./components/atoms/movie-info/movie-info.component";
 import { MovieLabelComponent } from "./components/atoms/movie-label/movie-label.component";
 
+import { SharedService } from "./shared.service";
+
 @NgModule({
   declarations: [
     // Root Component
@@ -30,7 +32,7 @@ import { MovieLabelComponent } from "./components/atoms/movie-label/movie-label.
     PosterComponent
   ],
   imports: [BrowserModule],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
